@@ -9,7 +9,7 @@ from joblib import load
 # 不要這行，因為你的版本不認得
 # st.set_option("deprecation.showPyplotGlobalUse", False)
 
-st.sidebar.title("Model / page")
+st.sidebar.title("Input Panel")
 #page = st.sidebar.selectbox("", ["CVD demo"])
 page = "CVD demo"
 
@@ -85,7 +85,7 @@ def run_cvd_demo_page():
     # ③ 如果你的 y 不是叫 Y，就改這裡
     x_train = x.drop(columns=["Y"])
 
-    st.sidebar.write("### Input variables")
+    
     NIHSS = st.sidebar.number_input("NIHSS", min_value=0.0, value=1.0, step=0.1)
     HR_Max = st.sidebar.number_input("HR_Max", min_value=0.0, value=108.0, step=0.1)
     BT_Mean = st.sidebar.number_input("BT_Mean", min_value=0.0, value=37.143, step=0.001)
