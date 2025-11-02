@@ -78,7 +78,7 @@ def run_cvd_demo_page():
     st.title("CVD prediction (HistGradientBoostingClassifier)")
 
     # ① 換成你的模型
-    with open(r"CVD_HBB.joblib", "rb") as f:
+    with open(r"CVD_HGB.joblib", "rb") as f:
         model = pickle.load(f)
 
     # ② 換成你的訓練資料
