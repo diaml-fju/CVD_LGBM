@@ -39,10 +39,7 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
 
     st.subheader("SHAP explanation")
 
-    background_sample = background.sample(
-        n=min(50, len(background)),
-        random_state=42
-    )
+    background_distribution=x_train
 
     try:
         explainer = shap.TreeExplainer(model)
@@ -56,7 +53,7 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
     except Exception:
         explainer = shap.KernelExplainer(
             lambda x: model.predict_proba(x)[:, 1],
-            background_sample
+            background_distribution
         )
         row = input_df.iloc[[0]]
         sv = explainer.shap_values(row)
