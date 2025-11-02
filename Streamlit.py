@@ -39,10 +39,11 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
 
     st.subheader("SHAP explanation")
 
-    background_distribution=x_train
-
+    #background_distribution=x_train
+    background = x_train[model_feature_names]
+    background_sample = background.sample(n=min(100, len(background)), random_state=42)
     try:
-        explainer = shap.KernelExplainer(model.predict_proba,background_distribution)
+        explainer = shap.KernelExplainer(model.predict_proba,background_sample)
         shap_values = explainer.shap_values(x_train)
 
         shap.plots.waterfall(shap_values[0], show=False)
@@ -53,7 +54,7 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
     except Exception:
         explainer = shap.KernelExplainer(
             lambda x: model.predict_proba(x)[:, 1],
-            background_distribution
+            background_sample
         )
         row = input_df.iloc[[0]]
         sv = explainer.shap_values(row)
