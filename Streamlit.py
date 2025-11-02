@@ -10,7 +10,7 @@ from joblib import load
 # st.set_option("deprecation.showPyplotGlobalUse", False)
 
 st.sidebar.title("Model / page")
-page = st.sidebar.selectbox("", ["CVD demo"])
+#page = st.sidebar.selectbox("", ["CVD demo"])
 
 
 def get_feature_names_from_model_or_data(model, fallback_cols):
@@ -88,11 +88,11 @@ def run_cvd_demo_page():
     x_train = x.drop(columns=["Y"])
 
     st.write("### Input variables")
-    NIHSS = st.number_input("NIHSS", min_value=0.0, value=1.0, step=0.1)
-    HR_Max = st.number_input("HR_Max", min_value=0.0, value=85.0, step=0.1)
-    BT_Mean = st.number_input("BT_Mean", min_value=0.0, value=36.2875, step=0.001)
-    SBP_Mean = st.number_input("SBP_Mean", min_value=0.0, value=156.416667, step=0.1)
-    BT_std = st.number_input("BT_std", min_value=0.0, value=0.309989919, step=0.001)
+    NIHSS = st.sidebar.number_input("NIHSS", min_value=0.0, value=1.0, step=0.1)
+    HR_Max = st.sidebar.number_input("HR_Max", min_value=0.0, value=85.0, step=0.1)
+    BT_Mean = st.sidebar.number_input("BT_Mean", min_value=0.0, value=36.2875, step=0.001)
+    SBP_Mean = st.sidebar.number_input("SBP_Mean", min_value=0.0, value=156.416667, step=0.1)
+    BT_std = st.sidebar.number_input("BT_std", min_value=0.0, value=0.309989919, step=0.001)
 
     user_inputs = {
         "NIHSS": NIHSS,
