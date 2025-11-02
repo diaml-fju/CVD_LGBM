@@ -27,15 +27,15 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
     #background = x_train[model_feature_names]
 
     proba = model.predict_proba(input_df)[0, 1]
-    st.write(f"🔢 Predicted probability: **{proba:.3f}**")
+    
 
     adaptive_thresholds = {"HGB": 0.23826015749222382}
     threshold = adaptive_thresholds.get(model_name, 0.5)
 
     if proba >= threshold:
-        st.error(f"Predicted: **Positive** (prob ≥ {threshold:.3f})")
+        st.error(f"Predicted: **Positive** ")
     else:
-        st.success(f"Predicted: **Negative** (prob < {threshold:.3f})")
+        st.success(f"Predicted: **Negative** ")
 
     st.subheader("SHAP explanation")
 
