@@ -11,7 +11,7 @@ from joblib import load
 
 st.sidebar.title("Model / page")
 #page = st.sidebar.selectbox("", ["CVD demo"])
-
+page = "CVD demo"
 
 def get_feature_names_from_model_or_data(model, fallback_cols):
     if hasattr(model, "feature_names_in_"):
