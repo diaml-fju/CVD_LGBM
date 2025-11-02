@@ -24,7 +24,7 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
 
     model_feature_names = get_feature_names_from_model_or_data(model, x_train.columns)
     input_df = input_df[model_feature_names]
-    background = x_train[model_feature_names]
+    #background = x_train[model_feature_names]
 
     proba = model.predict_proba(input_df)[0, 1]
     st.write(f"🔢 Predicted probability: **{proba:.3f}**")
@@ -42,8 +42,8 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
     background_distribution=x_train
 
     try:
-        explainer = shap.TreeExplainer(model)
-        shap_values = explainer(input_df)
+        explainer = shap.KernelExplainer(model.predict_proba,background_distribution)
+        shap_values = explainer.shap_values(x_train)
 
         shap.plots.waterfall(shap_values[0], show=False)
         fig = plt.gcf()
