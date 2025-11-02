@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 import matplotlib.pyplot as plt
 import shap
+from joblib import load
 
 # 不要這行，因為你的版本不認得
 # st.set_option("deprecation.showPyplotGlobalUse", False)
@@ -79,7 +80,7 @@ def run_cvd_demo_page():
 
     # ① 換成你的模型
     with open(r"CVD_HGB.joblib", "rb") as f:
-        model = pickle.load(f)
+        model = load(f)
 
     # ② 換成你的訓練資料
     x = pd.read_csv(r"CVD_SHAP_Model.csv")
