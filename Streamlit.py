@@ -86,10 +86,10 @@ def run_cvd_demo_page():
 
     st.write("### Input variables")
     NIHSS = st.sidebar.number_input("NIHSS", min_value=0.0, value=1.0, step=0.1)
-    HR_Max = st.sidebar.number_input("HR_Max", min_value=0.0, value=85.0, step=0.1)
-    BT_Mean = st.sidebar.number_input("BT_Mean", min_value=0.0, value=36.2875, step=0.001)
-    BT_std = st.sidebar.number_input("BT_std", min_value=0.0, value=0.309989919, step=0.001)
-    SBP_Mean = st.sidebar.number_input("SBP_Mean", min_value=0.0, value=156.416667, step=0.1)
+    HR_Max = st.sidebar.number_input("HR_Max", min_value=0.0, value=108.0, step=0.1)
+    BT_Mean = st.sidebar.number_input("BT_Mean", min_value=0.0, value=37.143, step=0.001)
+    BT_std = st.sidebar.number_input("BT_std", min_value=0.0, value=0.889, step=0.001)
+    SBP_Mean = st.sidebar.number_input("SBP_Mean", min_value=0.0, value=149.737, step=0.1)
     user_inputs = {
         "NIHSS": NIHSS,
         "HR_Max": HR_Max,
