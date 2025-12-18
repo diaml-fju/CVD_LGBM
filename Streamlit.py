@@ -87,6 +87,7 @@ def run_cvd_demo_page():
 
     
     NIHSS = st.sidebar.number_input("NIHSS", min_value=0,max_value=42, value=1, step=1)
+    NIHSS = min(max(NIHSS, 0), 42)
     HR_Max = st.sidebar.number_input("HR_Max", min_value=0, value=108, step=1)
     BT_Mean = st.sidebar.number_input("BT_Mean", min_value=0.0, value=37.1, step=0.1,
     format="%.1f")
