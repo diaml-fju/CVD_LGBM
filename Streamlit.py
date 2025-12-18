@@ -74,7 +74,7 @@ def predict_and_explain(model, x_train, input_df, model_name="HGB"):
 
 
 def run_cvd_demo_page():
-    st.title("CVD prediction")
+    st.title("Machine Learning Model to Predict In-hospital Stay of Ischemic Stroke Patients")
 
     # ① 換成你的模型
     with open(r"CVD_HGB.joblib", "rb") as f:
